@@ -1,0 +1,7 @@
+#!/bin/bash
+SERVER=soulflyer.co.uk
+LOGIN=jphuquoc
+
+REMOTEDIRECTORY="Pictures/divephotos"
+echo $LOGIN@$SERVER:$REMOTEDIRECTORY
+rsync -vai $1 $LOGIN@$SERVER:$REMOTEDIRECTORY
