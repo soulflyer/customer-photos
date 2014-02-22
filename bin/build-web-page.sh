@@ -27,10 +27,12 @@ MEDIUMPATH="medium/"
 LARGEPATH="large/"
 FULLSIZEPATH="fullsize/"
 
-for i in `basename $1/fullsize/*.jpg`
+for i in $1/fullsize/*.jpg
 do
-    LINKMEDIUM="<a class=\"medium\" href=./"$MEDIUMPATH$i"><img>./"$THUMBPATH$i"</img></a>"
-    LINKLARGE="<a class=\"large\" href=./"$LARGEPATH$i"><img>./"$THUMBPATH$i"</img></a>"
+    i=`basename $i`
+    echo $i
+    LINKMEDIUM="<a class=\"medium\" href=./"$MEDIUMPATH$i"><img src=./"$THUMBPATH$i"></a>"
+    LINKLARGE="<a class=\"large\" href=./"$LARGEPATH$i"><img src=./"$THUMBPATH$i"></a>"
     echo "     " $LINKMEDIUM >> $PAGE
     echo "     " $LINKLARGE >> $PAGE
     echo
