@@ -1,5 +1,5 @@
 #!/bin/bash
-PAGE=index.html
+PAGE=$1/index.html
 # for pic in `ls $1/fullsize/*.jpg`
 # do
 #     echo "<img>" $pic "</img>" >> $PAGE
