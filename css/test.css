@@ -1,0 +1,11 @@
+* { box-sizing: border-box; }
+
+.grid {
+    width: 25%;
+    height: 0px;
+    padding-bottom: 25%;
+    float: right;
+    outline: 5px solid red;
+    background:url(../images/menu-button.png) no-repeat top left;
+    background-size: cover;
+}

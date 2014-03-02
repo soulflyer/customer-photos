@@ -1,0 +1,20 @@
+/* #logo{width:200px;} */
+a.large {
+  display: none; }
+
+#menu {
+  display: none; }
+
+nav, nav.is-expanded {
+  height: 60px;
+  width: 500px;
+  float: right; }
+
+ul {
+  width: 500px; }
+
+li {
+  width: 25%; }
+
+article {
+  float: left; }

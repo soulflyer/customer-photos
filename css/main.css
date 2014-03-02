@@ -1,0 +1,25 @@
+body {
+  background: #ebda8c; }
+
+header {
+  background: #e3c13c; }
+  header #logo {
+    font-family: Papyrus, fantasy; }
+
+h1 {
+  font-family: "American Typewriter" Times serif; }
+
+nav li {
+  font-family: Papyrus, fantasy;
+  /* background: $pale-yellow; */ }
+
+nav {
+  background: #ebda8c; }
+
+.content a img {
+  outline: 4px solid black;
+  margin: 1%; }
+
+.content {
+  text-align: center;
+  margin-top: 2%; }

@@ -1,0 +1,37 @@
+$pale-yellow: #EBDA8C;
+$mid-yellow:  #E3C13C;
+$dark-yellow: #D2A613;
+$dark-orange: #CA6D15;
+
+$logo-font:   Papyrus, fantasy ;
+$header-font: "American Typewriter" Times serif;
+
+body {
+    background: $pale-yellow;
+}
+
+header {
+    #logo {font-family: $logo-font; }
+    background: $mid-yellow;
+}
+
+h1 {font-family: $header-font; }
+
+nav li {
+    font-family: $logo-font;
+    /* background: $pale-yellow; */
+}
+
+nav {
+    background: $pale-yellow;
+}
+
+.content a img {
+    outline: 4px solid black;
+    margin: 1%;
+}
+
+.content {
+    text-align: center;
+    margin-top: 2%;
+}
