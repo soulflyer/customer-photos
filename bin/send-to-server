@@ -1,7 +1,37 @@
 #!/bin/bash
+DRYRUN=""
+#set DRYRUN to "n" to make rsync do a dry run
+FILENAME="."
+EXCLUDES="--exclude fullsize"
+while [ "$1" != "" ]
+do
+  case $1 in
+    -f)
+      EXCLUDES="--exclude fullsize --exclude photos.zip"
+      shift
+      ;;
+    -n)
+      DRYRUN="n"
+      shift
+      ;;
+    -a)
+      EXCLUDES=""
+      shift
+      ;;
+    *)
+      FILENAME=$1
+      shift
+      ;;
+  esac
+done
+
+echo $EXCLUDES
+echo $FILENAME
+
 SERVER=soulflyer.co.uk
 LOGIN=jphuquoc
 
-REMOTEDIRECTORY="Pictures/divephotos"
-echo $LOGIN@$SERVER:$REMOTEDIRECTORY
-rsync -vai $1 $LOGIN@$SERVER:$REMOTEDIRECTORY
+REMOTEDIRECTORY="Pictures/divephotos/"
+
+echo rsync -vaik$DRYRUN $EXCLUDES $FILENAME $LOGIN@$SERVER:$REMOTEDIRECTORY
+rsync -vaik$DRYRUN $EXCLUDES $FILENAME $LOGIN@$SERVER:$REMOTEDIRECTORY

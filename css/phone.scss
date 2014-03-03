@@ -3,7 +3,7 @@ $logo-width: 83%;
 $menubottom: 11%;
 $menutop:    2%;
 $menu-item-height: $menutop +$menubottom;
-$menu-height: $menu-item-height * 4;
+$menu-height: $menu-item-height * 2;
 
 * { box-sizing: border-box; }
 
@@ -24,11 +24,10 @@ li {
     height:0px;
     padding-bottom: $menubottom;
     padding-top: $menutop;
-    border-bottom: 2px solid #2e3034;
+    border-bottom: 1px solid #2e3034;
     width:100%;
-    font-size: 1.5em;
+    font-size: 2em;
     text-align: center;
-    padding-left: 30%;
     font-weight: bold;
     font-style: italic;
 }
@@ -53,9 +52,6 @@ li {
     padding-bottom: $menu-button-width;
 }
 
-body {
-    margin: 0px;
-}
 
 .container {
     min-width: 340px;

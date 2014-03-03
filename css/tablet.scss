@@ -6,10 +6,25 @@ a.large {
 
 #menu{display: none;}
 
-nav, nav.is-expanded { height:60px;width:500px; float: right}
+header #logo {
+    font-size: 3em;
+    margin-left: 0.2em;
+    padding-top: 0.2em;
+}
 
-ul{width:500px;}
+header, nav {
+    font-style: italic;
+}
 
-li{width:25%;}
 
-article{float:left;}
+nav ul {
+    float: right;
+    margin-top: -3%;
+    margin-bottom: 0px;
+    margin-right: 3%;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 1em;
+}

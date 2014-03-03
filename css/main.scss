@@ -26,6 +26,15 @@ nav {
     background: $pale-yellow;
 }
 
+nav a {
+    text-decoration: none;
+}
+
+nav li a:visited, nav a:link, nav a:active {
+    color: #000000;
+    text-decoration: none;
+}
+
 .content a img {
     outline: 4px solid black;
     margin: 1%;
