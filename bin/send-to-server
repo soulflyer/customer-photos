@@ -35,7 +35,12 @@ EOF
       exit
       ;;
     *)
+      TEMP=`dirname $1`
+      TEMP2=`basename $1`
+      echo $TEMP/$TEMP2
       FILENAME=$1
+      FILENAME=`dirname $1`/`basename $1`
+      echo $FILENAME
       shift
       echo rsync -vaik$DRYRUN --delete $ALLWAYSEXCLUDE $EXCLUDES $FILENAME $LOGIN@$SERVER:$REMOTEDIRECTORY
       rsync -vaik$DRYRUN --delete $ALLWAYSEXCLUDE $EXCLUDES $FILENAME $LOGIN@$SERVER:$REMOTEDIRECTORY

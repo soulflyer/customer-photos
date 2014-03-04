@@ -6,8 +6,8 @@ header {
   header #logo {
     font-family: Papyrus, fantasy; }
 
-h1 {
-  font-family: "American Typewriter" Times serif; }
+h1, h2 {
+  font-family: Papyrus, fantasy; }
 
 nav li {
   font-family: Papyrus, fantasy;
@@ -35,4 +35,5 @@ aside {
   display: none; }
 
 aside.is-expanded {
-  display: block; }
+  display: block;
+  margin: 2%; }

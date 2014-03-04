@@ -48,8 +48,10 @@ cat <<EOF > $PAGE
       </ul>
     </nav>
     <aside>
-      <h1>Information</h1>
-      <p>Blah blah blah</>
+      <h2>Sharing</h2>
+      <p>Feel free to share these pictures online if you like. If you could give me a mention when you do, I would appreciate it, but this is not a requirement. If you want to use them in a commercial product, please get in touch first. (public at soulflyer.co.uk)</p>
+      <h2>Downloading</h2>
+      </p>Click the download link and you should get a zip file containing all the pics on the page. This probably isn't going to work on a phone without some fancy app (and a jailbroken phone), but it should work fine from a computer. This may take a little while, the pics are reasonabley large. If for some reason you need an even higher res copy get in touch. This is rarely worth the long upload/download time unless you are planing on printing huge copies.</p>
     </aside>
     <section class="content">
 
