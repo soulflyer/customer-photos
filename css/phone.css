@@ -62,11 +62,5 @@ nav.is-expanded {
   height: 0px;
   padding-bottom: 39%; }
 
-aside {
-  display: none; }
-
-aside.is-expanded {
-  display: block; }
-
 a.large {
   display: none; }

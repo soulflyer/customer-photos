@@ -30,3 +30,9 @@ nav li a:visited, nav a:link, nav a:active {
 .content {
   text-align: center;
   margin-top: 2%; }
+
+aside {
+  display: none; }
+
+aside.is-expanded {
+  display: block; }
