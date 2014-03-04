@@ -14,6 +14,7 @@ cat <<EOF > $PAGE
 <!doctype html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" type="text/css" href="/divephotos/css/main.css">
   <link rel="stylesheet" media="(max-width: 600px)"  type="text/css" href="/divephotos/css/phone.css">
   <link rel="stylesheet" media="(max-width: 1024px)" type="text/css" href="/divephotos/css/touch-screen.css">

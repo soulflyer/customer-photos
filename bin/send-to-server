@@ -1,8 +1,13 @@
 #!/bin/bash
 DRYRUN=""
 #set DRYRUN to "n" to make rsync do a dry run
-FILENAME="."
+FILENAME=`pwd`
 EXCLUDES="--exclude fullsize"
+SERVER=soulflyer.co.uk
+LOGIN=jphuquoc
+
+REMOTEDIRECTORY="Pictures/divephotos/"
+
 while [ "$1" != "" ]
 do
   case $1 in
@@ -18,20 +23,21 @@ do
       EXCLUDES=""
       shift
       ;;
+    -?)
+      cat <<EOF
+sends a set of pictures to the server. If no directory is specified, then it will send the current directory.
+OPTIONS:
+-a includes the fullsize pictures
+-f fast. excludes the zip file and the fullsize pics
+-n dry run
+EOF
+      exit
+      ;;
     *)
       FILENAME=$1
       shift
+      echo rsync -vaik$DRYRUN $EXCLUDES $FILENAME $LOGIN@$SERVER:$REMOTEDIRECTORY
+      rsync -vaik$DRYRUN $EXCLUDES $FILENAME $LOGIN@$SERVER:$REMOTEDIRECTORY
       ;;
   esac
 done
-
-echo $EXCLUDES
-echo $FILENAME
-
-SERVER=soulflyer.co.uk
-LOGIN=jphuquoc
-
-REMOTEDIRECTORY="Pictures/divephotos/"
-
-echo rsync -vaik$DRYRUN $EXCLUDES $FILENAME $LOGIN@$SERVER:$REMOTEDIRECTORY
-rsync -vaik$DRYRUN $EXCLUDES $FILENAME $LOGIN@$SERVER:$REMOTEDIRECTORY
