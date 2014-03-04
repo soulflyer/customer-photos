@@ -3,7 +3,7 @@ $logo-width: 83%;
 $menubottom: 11%;
 $menutop:    2%;
 $menu-item-height: $menutop +$menubottom;
-$menu-height: $menu-item-height * 2;
+$menu-height: $menu-item-height * 3;
 
 * { box-sizing: border-box; }
 
@@ -73,6 +73,14 @@ nav.is-expanded {
     margin:0px;
     height:0px;
     padding-bottom:$menu-height;
+}
+
+aside {
+    display: none;
+}
+
+aside.is-expanded {
+    display: block;
 }
 
 a.large {

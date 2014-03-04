@@ -1,14 +1,24 @@
 #!/bin/bash
-PAGE=$1/index.html
+PAGE=index.html
 
-mv $1/large $1/soulflyer-photos
-zip $1/photos.zip $1/soulflyer-photos/*.jpg
-mv $1/soulflyer-photos $1/large
+cd $1
+echo $1
+echo `basename $1`
 
-# for pic in `ls $1/fullsize/*.jpg`
-# do
-#     echo "<img>" $pic "</img>" >> $PAGE
-# done
+if [ -f photos.zip ]
+then
+echo found zip file
+fi
+
+# Have to rename the directory to get the correct folder name in the zip file
+mv large soulflyer-photos
+zip photos.zip soulflyer-photos/*.jpg
+mv soulflyer-photos large
+
+# Now add any gifs to the existing zip file
+mv medium soulflyer-photos
+zip photos.zip soulflyer-photos/*.gif
+mv soulflyer-photos medium
 
 cat <<EOF > $PAGE
 <!doctype html>
@@ -34,8 +44,13 @@ cat <<EOF > $PAGE
       <ul>
         <li><a href=http://soulflyer.com/>home</a></li>
         <li><a href=photos.zip>download</a></li>
+        <li id="infobutton">information</li>
       </ul>
     </nav>
+    <aside>
+      <h1>Information</h1>
+      <p>Blah blah blah</>
+    </aside>
     <section class="content">
 
 EOF
@@ -45,7 +60,7 @@ MEDIUMPATH="medium/"
 LARGEPATH="large/"
 FULLSIZEPATH="fullsize/"
 
-for i in $1/fullsize/*.jpg
+for i in fullsize/*.jpg
 do
     i=`basename $i`
     echo $i
@@ -54,6 +69,17 @@ do
     echo "     " $LINKMEDIUM >> $PAGE
     echo "     " $LINKLARGE >> $PAGE
     echo
+done
+
+for i in medium/*.gif
+do
+
+    i=`basename $i`
+    if [[ $i != "*.gif" ]]
+    then
+        echo "found gif: " $i
+        echo "      <a class=\"gifthumb\" href=./"$MEDIUMPATH$i"><img src=./"$THUMBPATH$i"></a>" >> $PAGE
+    fi
 done
 
 

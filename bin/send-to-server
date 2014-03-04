@@ -2,6 +2,7 @@
 DRYRUN=""
 #set DRYRUN to "n" to make rsync do a dry run
 FILENAME=`pwd`
+ALLWAYSEXCLUDE=" --exclude *.scss --exclude .sass-cache"
 EXCLUDES="--exclude fullsize"
 SERVER=soulflyer.co.uk
 LOGIN=jphuquoc
@@ -36,8 +37,8 @@ EOF
     *)
       FILENAME=$1
       shift
-      echo rsync -vaik$DRYRUN $EXCLUDES $FILENAME $LOGIN@$SERVER:$REMOTEDIRECTORY
-      rsync -vaik$DRYRUN $EXCLUDES $FILENAME $LOGIN@$SERVER:$REMOTEDIRECTORY
+      echo rsync -vaik$DRYRUN --delete $ALLWAYSEXCLUDE $EXCLUDES $FILENAME $LOGIN@$SERVER:$REMOTEDIRECTORY
+      rsync -vaik$DRYRUN --delete $ALLWAYSEXCLUDE $EXCLUDES $FILENAME $LOGIN@$SERVER:$REMOTEDIRECTORY
       ;;
   esac
 done

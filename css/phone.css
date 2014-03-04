@@ -60,7 +60,13 @@ nav {
 nav.is-expanded {
   margin: 0px;
   height: 0px;
-  padding-bottom: 26%; }
+  padding-bottom: 39%; }
+
+aside {
+  display: none; }
+
+aside.is-expanded {
+  display: block; }
 
 a.large {
   display: none; }
