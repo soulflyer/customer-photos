@@ -1,11 +1,14 @@
+$pale-yellow: #EBDA8C;
+$mid-yellow:  #E3C13C;
+$dark-yellow: #D2A613;
+$dark-orange: #CA6D15;
+$dark-grey:   #2e3034;
 $menu-button-width: 17%;
 $logo-width: 83%;
 $menubottom: 11%;
 $menutop:    2%;
 $menu-item-height: $menutop +$menubottom;
 $menu-height: $menu-item-height * 3;
-
-* { box-sizing: border-box; }
 
 header, nav { width:100%; }
 
@@ -24,7 +27,7 @@ li {
     height:0px;
     padding-bottom: $menubottom;
     padding-top: $menutop;
-    border-bottom: 1px solid #2e3034;
+    border-bottom: 1px solid $dark-grey;
     width:100%;
     font-size: 2em;
     text-align: center;
@@ -62,14 +65,16 @@ header {
     padding-bottom: $menu-button-width;
 }
 
-nav { height:0px;
+nav { height:0.5px;
       overflow: hidden;
       width:100%;
-
-      outline:1px solid #2e3034;
-      webkit-transition: height 1s;
+      background: $dark-grey;
+      outline:1px solid $dark-grey;
+      padding-bottom:0px;
+      -webkit-transition: padding-bottom 1s;
 }
 nav.is-expanded {
+    background:$pale-yellow;
     margin:0px;
     height:0px;
     padding-bottom:$menu-height;
@@ -77,4 +82,17 @@ nav.is-expanded {
 
 a.large {
     display: none;
+}
+
+aside .photo-image {
+    width:25%;
+}
+
+aside .photo-image img {
+    width: 100%;
+}
+
+aside .photo-description {
+    width: 70%;
+    margin-bottom: 6%;
 }

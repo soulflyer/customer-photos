@@ -6,6 +6,12 @@ $dark-orange: #CA6D15;
 $logo-font:   Papyrus, fantasy ;
 $header-font: "American Typewriter" Times serif;
 
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 body {
     background: $pale-yellow;
 }
@@ -35,7 +41,7 @@ nav li a:visited, nav a:link, nav a:active {
     text-decoration: none;
 }
 
-.content a img {
+a img {
     outline: 4px solid black;
     margin: 1%;
 }
@@ -43,6 +49,7 @@ nav li a:visited, nav a:link, nav a:active {
 .content {
     text-align: center;
     margin-top: 2%;
+    clear: both;
 }
 
 aside {
@@ -52,4 +59,30 @@ aside {
 aside.is-expanded {
     display: block;
     margin: 2%;
+}
+
+aside .photo-block {
+    clear: both;
+}
+
+
+aside .photo-image {
+    float: left;
+    margin-bottom: 1%;
+}
+
+aside .photo-description {
+    float: left;
+    width: 68%;
+    margin-left: 2%;
+}
+
+aside .photo-description h2 {
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+aside .photo-description p {
+    margin-top: 0%;
+    margin-bottom: 0%;
 }
