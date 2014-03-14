@@ -13,7 +13,7 @@ while [ "$1" != "" ]
 do
   case $1 in
     -f)
-      EXCLUDES="--exclude fullsize --exclude photos.zip"
+      EXCLUDES="--exclude fullsize --exclude photos.zip --exclude large"
       shift
       ;;
     -n)
@@ -42,8 +42,8 @@ EOF
       FILENAME=`dirname $1`/`basename $1`
       echo $FILENAME
       shift
-      echo rsync -vaik$DRYRUN --delete $ALLWAYSEXCLUDE $EXCLUDES $FILENAME $LOGIN@$SERVER:$REMOTEDIRECTORY
-      rsync -vaik$DRYRUN --delete $ALLWAYSEXCLUDE $EXCLUDES $FILENAME $LOGIN@$SERVER:$REMOTEDIRECTORY
+      echo rsync -vaikK$DRYRUN --delete $ALLWAYSEXCLUDE $EXCLUDES $FILENAME $LOGIN@$SERVER:$REMOTEDIRECTORY
+      rsync -vaikK$DRYRUN --delete $ALLWAYSEXCLUDE $EXCLUDES $FILENAME $LOGIN@$SERVER:$REMOTEDIRECTORY
       ;;
   esac
 done
