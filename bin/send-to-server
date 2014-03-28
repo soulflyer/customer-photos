@@ -24,6 +24,10 @@ do
       EXCLUDES=""
       shift
       ;;
+    -t)
+      EXCLUDES="--exclude fullsize --exclude photos.zip --exclude large --exclude medium"
+      shift
+      ;;
     -?)
       cat <<EOF
 sends a set of pictures to the server. If no directory is specified, then it will send the current directory.
