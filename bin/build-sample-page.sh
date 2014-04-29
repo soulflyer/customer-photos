@@ -5,20 +5,6 @@ cd $1
 echo $1
 echo `basename $1`
 
-if [ -f photos.zip ]
-then
-echo found zip file
-fi
-
-# Have to rename the directory to get the correct folder name in the zip file
-mv large soulflyer-photos
-zip photos.zip soulflyer-photos/*.jpg
-mv soulflyer-photos large
-
-# Now add any gifs to the existing zip file
-mv medium soulflyer-photos
-zip photos.zip soulflyer-photos/*.gif
-mv soulflyer-photos medium
 
 cat <<EOF > $PAGE
 <!doctype html>
@@ -43,7 +29,6 @@ cat <<EOF > $PAGE
     <nav>
       <ul>
         <li><a href=http://soulflyer.com/>home</a></li>
-        <li><a href=photos.zip>download</a></li>
         <li id="infobutton">information</li>
       </ul>
     </nav>
@@ -54,7 +39,7 @@ if [ -f information.html ]
 then
     echo "found information.html"
 else
-    cp /Users/iain/Code/CustomerPhotos/lib/information.html .
+    cp /Users/iain/Code/PublishPhotos/lib/sample-information.html .
 fi
 
 cat information.html >> $PAGE
@@ -81,15 +66,12 @@ do
     fi
 done
 
-for i in fullsize/*.jpg
+for i in thumbs/*.jpg
 do
     i=`basename $i`
     echo $i
-    LINKMEDIUM="<a class=\"medium\" href=./"$MEDIUMPATH$i"><img src=./"$THUMBPATH$i"></a>"
-    LINKLARGE="<a class=\"large\" href=./"$LARGEPATH$i"><img src=./"$THUMBPATH$i"></a>"
+    LINKMEDIUM="<a class=\"sample\" href=./"$MEDIUMPATH$i"><img src=./"$THUMBPATH$i"></a>"
     echo "     " $LINKMEDIUM >> $PAGE
-    echo "     " $LINKLARGE >> $PAGE
-    echo
 done
 
 cat <<EOF >>$PAGE

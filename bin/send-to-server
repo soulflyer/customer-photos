@@ -46,8 +46,8 @@ EOF
       FILENAME=`dirname $1`/`basename $1`
       echo $FILENAME
       shift
-      echo rsync -vaikK$DRYRUN --delete $ALLWAYSEXCLUDE $EXCLUDES $FILENAME $LOGIN@$SERVER:$REMOTEDIRECTORY
-      rsync -vaikK$DRYRUN --delete $ALLWAYSEXCLUDE $EXCLUDES $FILENAME $LOGIN@$SERVER:$REMOTEDIRECTORY
+      echo rsync -vaikK$DRYRUN --partial --delete $ALLWAYSEXCLUDE $EXCLUDES $FILENAME $LOGIN@$SERVER:$REMOTEDIRECTORY
+      rsync -vaikK$DRYRUN --partial --delete $ALLWAYSEXCLUDE $EXCLUDES $FILENAME $LOGIN@$SERVER:$REMOTEDIRECTORY
       ;;
   esac
 done
