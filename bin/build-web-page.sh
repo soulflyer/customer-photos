@@ -81,7 +81,7 @@ do
     fi
 done
 
-for i in fullsize/*.jpg
+for i in thumbs/*.jpg
 do
     i=`basename $i`
     echo $i

@@ -6,9 +6,16 @@ PICTUREFILES=${PICTUREFILES//,/$'\n'}
 echo $PICTUREFILES | tr [:space:] "\n"
 
 PICURL="http://soulflyer.co.uk/photos/"
-PAGE=$1.html
-INFOPAGE=/Users/iain/Code/PublishPhotos/lib/galleryinfo.html
-INFOPAGETHUMB="images/SoulflyerPhotos.png"
+
+PAGENAME=$1
+
+ROOTFOLDER=/Users/iain/Code/PublishPhotos
+PAGE=$ROOTFOLDER/$PAGENAME.html
+INFOPAGE=$ROOTFOLDER/lib/galleryinfo.html
+INFOPAGETHUMB=images/SoulflyerPhotosThumb.png
+
+
+
 if [ $2 ]
 then
     INFOPAGE=$2
@@ -16,6 +23,11 @@ fi
 if [ $3]
 then
     INFOPAGETHUMB=$3
+else
+    GENERATEDTHUMB=images/gallery-${PAGENAME}.png
+    convert $ROOTFOLDER/$INFOPAGETHUMB -gravity Southeast -font Papyrus -pointsize 20 -annotate +10-4 $PAGENAME $ROOTFOLDER/$GENERATEDTHUMB
+    INFOPAGETHUMB=$GENERATEDTHUMB
+    echo "Infopagethumb: $INFOPAGETHUMB"
 fi
 
 cat <<EOF > $PAGE
@@ -34,12 +46,27 @@ cat <<EOF > $PAGE
 </head>
 <body>
   <div id="slider" class="sliderwrapper">
+    <div class="contentdiv">
+      <div id="infoheader">
+        <nav>
+          <ul>
+            <li><a href=http://soulflyer.com/>home</a></li>
+            <li><a href=http://soulflyer.com/galleries>galleries</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="galleryinfo">
 EOF
 
 COUNT=`echo $PICTUREFILES | wc -w | sed -e 's/ //g'`
 echo COUNT:$COUNT
 
 cat $INFOPAGE >> $PAGE
+
+cat <<EOF >> $PAGE
+      </div>
+    </div>
+EOF
 
 for pic in $PICTUREFILES
 do

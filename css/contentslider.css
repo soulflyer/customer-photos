@@ -44,8 +44,7 @@ body {
 .sliderwrapper .details {
   float: left; }
 
-.sliderwrapper h2 {
-  float: left;
+.sliderwrapper h2, h1 {
   color: #606060;
   font-family: sans-serif;
   font-size: large;
@@ -79,5 +78,66 @@ body {
 .n6thumbs img {
   width: 142px; }
 
+.n7thumbs img {
+  width: 124px; }
+
+.n8thumbs img {
+  width: 109px; }
+
+.n9thumbs img {
+  width: 98px; }
+
+.n10thumbs img {
+  width: 89px; }
+
+.n11thumbs img {
+  width: 81px; }
+
+.n12thumbs img {
+  width: 74px; }
+
 .n13thumbs img {
   width: 69px; }
+
+.n14thumbs img {
+  width: 64px; }
+
+#infoheader {
+  background: url(../images/Saigon.jpg);
+  background-size: 100%;
+  height: 154px;
+  margin-bottom: 7px; }
+
+nav {
+  background: none;
+  padding-top: 115px; }
+
+nav ul {
+  padding-left: 2%; }
+
+nav ul li {
+  display: inline;
+  margin-right: 2%; }
+
+nav ul a {
+  text-decoration: none; }
+
+nav ul a:visited, nav ul a:link, nav ul a:active {
+  color: #000000;
+  text-decoration: none; }
+
+.galleryinfo {
+  height: 550px;
+  width: 1024px;
+  position: absolute;
+  border-top: 5px; }
+
+.galleryinfo h2 {
+  clear: both; }
+
+.galleryinfo .textpanel {
+  color: #606060; }
+
+.samplepic {
+  height: 525px;
+  float: left; }

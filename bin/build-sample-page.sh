@@ -5,6 +5,9 @@ cd $1
 echo $1
 echo `basename $1`
 
+mv medium soulflyer-photos
+zip photos.zip soulflyer-photos/*.jpg
+mv soulflyer-photos medium
 
 cat <<EOF > $PAGE
 <!doctype html>
@@ -30,6 +33,7 @@ cat <<EOF > $PAGE
       <ul>
         <li><a href=http://soulflyer.com/>home</a></li>
         <li id="infobutton">information</li>
+        <li><a href=photos.zip>download</a></li>
       </ul>
     </nav>
     <aside>

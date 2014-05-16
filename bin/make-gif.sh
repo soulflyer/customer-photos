@@ -5,37 +5,50 @@ THUMB_SIZE="160x160"
 
 #Source folder defaults to current dir unless there is a parameter
 FILE_FOLDER="."
-if [[ -e $1 ]]
+OUTPUT_FOLDER="/tmp"
+TIME=50
+LONG_TIME=200
+
+while getopts 'f:o:t:d:D:' OPTION
+do
+    case $OPTION in
+        f)  FILE_FOLDER=$OPTARG
+            ;;
+        o)  OUTPUT_FOLDER=$OPTARG
+            ;;
+        t)  THUMB_OUTPUT=$OPTARG
+            ;;
+        d)  TIME=$OPTARG
+            ;;
+        D)  LONG_TIME=$OPTARG
+            ;;
+        ?) echo "no help"
+            exit 2
+            ;;
+    esac
+done
+
+if [[ -e $FILE_FOLDER ]]
 then
-    FILE_FOLDER=$1
+    echo "File folder: $FILE_FOLDER"
 else
     echo "Directory not found: $FILE_FOLDER"
+    exit 2
 fi
-echo "File folder: $FILE_FOLDER"
 
 FILE_LIST=`ls $FILE_FOLDER`
 COUNT=`echo $FILE_LIST | wc -w`
-
-#Output folder defaults to /tmp unless there is a second parameter passed in
-OUTPUT_FOLDER="/tmp"
-if [[ $2 != "" ]]
-then
-    OUTPUT_FOLDER=$2
-fi
 
 if ! [[ -e $OUTPUT_FOLDER ]]
 then
     echo "Making output folder"
     mkdir -p $OUTPUT_FOLDER
 fi
-
 echo "Output folder: $OUTPUT_FOLDER"
 
-#Thumb output folder defaults to $OUTPUT_FOLDER/thumbs unless there is a 3rd param
-THUMB_OUTPUT="$OUTPUT_FOLDER/thumbs"
-if [[ $3 != "" ]]
+if [[ $THUMB_OUTPUT = "" ]]
 then
-    THUMB_OUTPUT=$3
+    THUMB_OUTPUT="$OUTPUT_FOLDER/thumbs"
 fi
 
 if ! [[ -e $THUMB_OUTPUT ]]
@@ -43,12 +56,10 @@ then
     mkdir $THUMB_OUTPUT
     echo "Making thumbs folder"
 fi
-
 echo "Thumb output folder: $THUMB_OUTPUT"
 
 COMMAND_STRING="$CONVERT_PATH -loop 0 "
 i=0
-TIME=50
 for FILE_NAME in $FILE_LIST
 do
     if [ $i == 0 ]
