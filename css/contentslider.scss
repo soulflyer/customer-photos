@@ -138,7 +138,10 @@ nav ul a:visited, nav ul a:link, nav ul a:active {
 }
 
 .galleryinfo .textpanel {
-    color: $pale-gray
+    color: $pale-gray;
+    width: 228px;
+    padding-left: 10px;
+    float: left;
 }
 
 .samplepic {

@@ -5,12 +5,12 @@ PICTUREFILES=`osascript /Users/iain/bin/pic-pathnames.scpt`
 PICTUREFILES=${PICTUREFILES//,/$'\n'}
 echo $PICTUREFILES | tr [:space:] "\n"
 
-PICURL="http://soulflyer.co.uk/photos/"
+PICURL="/photos"
 
 PAGENAME=$1
 
 ROOTFOLDER=/Users/iain/Code/PublishPhotos
-PAGE=$ROOTFOLDER/$PAGENAME.html
+PAGE=$ROOTFOLDER/pages/$PAGENAME.html
 INFOPAGE=$ROOTFOLDER/lib/galleryinfo.html
 INFOPAGETHUMB=images/SoulflyerPhotosThumb.png
 
@@ -24,7 +24,7 @@ if [ $3]
 then
     INFOPAGETHUMB=$3
 else
-    GENERATEDTHUMB=images/gallery-${PAGENAME}.png
+    GENERATEDTHUMB=/images/gallery-${PAGENAME}.png
     convert $ROOTFOLDER/$INFOPAGETHUMB -gravity Southeast -font Papyrus -pointsize 20 -annotate +10-4 $PAGENAME $ROOTFOLDER/$GENERATEDTHUMB
     INFOPAGETHUMB=$GENERATEDTHUMB
     echo "Infopagethumb: $INFOPAGETHUMB"
@@ -35,8 +35,8 @@ cat <<EOF > $PAGE
 <html>
 <head>
   <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" type="text/css" href="css/contentslider.css" />
-  <script type="text/javascript" src="js/contentslider.js">
+  <link rel="stylesheet" type="text/css" href="/css/contentslider.css" />
+  <script type="text/javascript" src="/js/contentslider.js">
   /***********************************************
   * Featured Content Slider- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
   * This notice MUST stay intact for legal use

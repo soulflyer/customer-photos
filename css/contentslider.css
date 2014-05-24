@@ -136,7 +136,10 @@ nav ul a:visited, nav ul a:link, nav ul a:active {
   clear: both; }
 
 .galleryinfo .textpanel {
-  color: #606060; }
+  color: #606060;
+  width: 228px;
+  padding-left: 10px;
+  float: left; }
 
 .samplepic {
   height: 525px;
