@@ -3,7 +3,9 @@ shopt -s extglob
 PICTUREFILES=`osascript /Users/iain/bin/pic-pathnames.scpt`
 #PICTUREFILES=${PICTUREFILES//\.@(jpg|JPG|PSD|psd|nef|NEF|CR2|cr2)*(,)/$'\n'}
 PICTUREFILES=${PICTUREFILES//,/$'\n'}
-echo $PICTUREFILES | tr [:space:] "\n"
+# echo $PICTUREFILES | tr [:space:] "\n"
+COUNT=`echo $PICTUREFILES | wc -w | sed -e 's/ //g'`
+echo $COUNT pictures
 
 PICURL="/photos"
 
@@ -11,10 +13,16 @@ PAGENAME=$1
 
 ROOTFOLDER=/Users/iain/Code/PublishPhotos
 PAGE=$ROOTFOLDER/pages/$PAGENAME.html
-INFOPAGE=$ROOTFOLDER/lib/galleryinfo.html
+INFOPAGE=$ROOTFOLDER/lib/$PAGENAME-info.html
 INFOPAGETHUMB=images/SoulflyerPhotosThumb.png
 
+CSSFILE="<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/gallery-$PAGENAME.css\" />"
 
+if [[ ! -f $INFOPAGE ]]
+then
+    echo "Copying info file"
+    cp $ROOTFOLDER/lib/gallery-info.html $INFOPAGE
+fi
 
 if [ $2 ]
 then
@@ -27,7 +35,7 @@ else
     GENERATEDTHUMB=/images/gallery-${PAGENAME}.png
     convert $ROOTFOLDER/$INFOPAGETHUMB -gravity Southeast -font Papyrus -pointsize 20 -annotate +10-4 $PAGENAME $ROOTFOLDER/$GENERATEDTHUMB
     INFOPAGETHUMB=$GENERATEDTHUMB
-    echo "Infopagethumb: $INFOPAGETHUMB"
+#    echo "Infopagethumb: $INFOPAGETHUMB"
 fi
 
 cat <<EOF > $PAGE
@@ -36,6 +44,11 @@ cat <<EOF > $PAGE
 <head>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" type="text/css" href="/css/contentslider.css" />
+EOF
+
+echo $CSSFILE >> $PAGE
+
+cat <<EOF >> $PAGE
   <script type="text/javascript" src="/js/contentslider.js">
   /***********************************************
   * Featured Content Slider- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
@@ -58,9 +71,6 @@ cat <<EOF > $PAGE
       <div class="galleryinfo">
 EOF
 
-COUNT=`echo $PICTUREFILES | wc -w | sed -e 's/ //g'`
-echo COUNT:$COUNT
-
 cat $INFOPAGE >> $PAGE
 
 cat <<EOF >> $PAGE
@@ -71,7 +81,7 @@ EOF
 for pic in $PICTUREFILES
 do
     CAPTION=`exiftool -s3 -Caption-Abstract /Users/iain/Pictures/Published/medium/$pic.jpg`
-    echo $CAPTION
+    echo $pic: $CAPTION
 
     ISO=`exiftool -s3 -ISO /Users/iain/Pictures/Published/medium/$pic.jpg`
     SHUTTERSPEED=`exiftool -s3 -ShutterSpeed /Users/iain/Pictures/Published/medium/$pic.jpg`

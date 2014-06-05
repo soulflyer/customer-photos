@@ -43,11 +43,11 @@ body {
 }
 
 .sliderwrapper .caption {
-    float: right;
+    float: left;
 }
 
 .sliderwrapper .details {
-    float: left;
+    float: right;
 }
 
 .sliderwrapper h2,h1 {
@@ -139,7 +139,7 @@ nav ul a:visited, nav ul a:link, nav ul a:active {
 
 .galleryinfo .textpanel {
     color: $pale-gray;
-    width: 228px;
+    width: 220px;
     padding-left: 10px;
     float: left;
 }
