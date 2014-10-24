@@ -11,9 +11,9 @@ echo found zip file
 fi
 
 # Have to rename the directory to get the correct folder name in the zip file
-mv large soulflyer-photos
+mv medium soulflyer-photos
 zip photos.zip soulflyer-photos/*.jpg
-mv soulflyer-photos large
+mv soulflyer-photos medium
 
 # Now add any gifs to the existing zip file
 mv medium soulflyer-photos
