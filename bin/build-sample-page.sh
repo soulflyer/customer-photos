@@ -1,4 +1,6 @@
 #!/bin/bash
+#called by applescript export-sample-pics.scpt
+
 PAGE=index.html
 
 cd $1

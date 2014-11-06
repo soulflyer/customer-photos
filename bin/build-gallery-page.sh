@@ -1,4 +1,10 @@
 #!/bin/bash
+# Expects there to be a set of pictures seleced in aperture.
+# Builds a gallery page using these pics
+# NOTE: No exporting is done, the pics must be already exported
+
+# Usage: build-gallery-page.sh "galleryname" [ "path to info page" [ "path to infopage thumb"]]
+
 shopt -s extglob
 PICTUREFILES=`osascript /Users/iain/bin/pic-pathnames.scpt`
 #PICTUREFILES=${PICTUREFILES//\.@(jpg|JPG|PSD|psd|nef|NEF|CR2|cr2)*(,)/$'\n'}
