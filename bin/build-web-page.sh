@@ -4,8 +4,17 @@
 PAGE=index.html
 
 cd $1
-echo $1
-echo `basename $1`
+#echo $1
+FOLDERNAME=`basename $1`
+echo $FOLDERNAME
+
+shift
+if [ $_ ]
+then
+    echo "Second param is $1"
+else
+    echo "Didn't get 2nd param"
+fi
 
 if [ -f photos.zip ]
 then
@@ -32,6 +41,8 @@ cat <<EOF > $PAGE
   <link rel="stylesheet" media="(max-width: 1024px)" type="text/css" href="/divephotos/css/touch-screen.css">
   <link rel="stylesheet" media="(min-width: 601px) and (max-width: 1024px)" type="text/css" href="/divephotos/css/tablet.css">
   <link rel="stylesheet" media="(min-width: 1024px)" type="text/css" href="/divephotos/css/laptop.css">
+  <link rel="stylesheet" type="text/css" href="/divephotos/css/fbbutton.css">
+  <script type="text/javascript" src="/divephotos/js/fbbutton.js"></script>
   <script type="text/javascript" src="/divephotos/js/jquery-2.0.3.js"></script>
   <script type="text/javascript" chset="utf-8" src="/divephotos/js/mobile-jquery.js"></script>
 
@@ -56,7 +67,8 @@ if [ -f information.html ]
 then
     echo "found information.html"
 else
-    cp /Users/iain/Code/CustomerPhotos/lib/information.html .
+    echo "copying default info file"
+    cp /Users/iain/Code/PublishPhotos/lib/information.html .
 fi
 
 cat information.html >> $PAGE
@@ -87,10 +99,13 @@ for i in thumbs/*.jpg
 do
     i=`basename $i`
     echo $i
+    URLMEDIUM="http://soulflyer.co.uk/divephotos/"$FOLDERNAME"/"$MEDIUMPATH$i
     LINKMEDIUM="<a class=\"medium\" href=./"$MEDIUMPATH$i"><img src=./"$THUMBPATH$i"></a>"
     LINKLARGE="<a class=\"large\" href=./"$LARGEPATH$i"><img src=./"$THUMBPATH$i"></a>"
+    FACEBOOKLINK="<input type="button" value='' class='fbinput' onclick=Javascript:postImage('"$URLMEDIUM"') />"
     echo "     " $LINKMEDIUM >> $PAGE
     echo "     " $LINKLARGE >> $PAGE
+    echo "     " $FACEBOOKLINK >> $PAGE
     echo
 done
 
