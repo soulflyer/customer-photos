@@ -1,6 +1,10 @@
 window.fbAsyncInit = function() {
     FB.init({
+        // appid for use on soulflyer.co.uk
         appId      : '897493126927870',
+        // appid for testing on localhost
+        // appId      : '659375807506663',
+
         xfbml      : true,
         version    : 'v2.2'
     });
@@ -18,9 +22,12 @@ var buttonPressed = function(){
     postImage("http://soulflyer.co.uk/photos/medium/2014/09/04-Bute/DIW_8563.jpg");
 };
 
-var postImage = function(imageURL){
+var postImage = function(imageURL,divecentre){
     console.log('Attempting to log in to FaceBook');
-    var message = 'Picture by Soulflyer Photos http://soulflyer.com\nDiving with Rainbow Divers: http://divevietnam.com';
+    divecentre = divecentre.replace(/_/g,' ');
+    usermessage = prompt("Posting to FaceBook, Add a message if you like\nHit return to just post the picture");
+    var message = usermessage + "\n\n" + 'Picture by Soulflyer Photos http://soulflyer.com\n' + divecentre;
+    console.log(message);
     FB.login(function(response){
         if (response.authResponse){
             var access_token = FB.getAuthResponse()['accessToken'];

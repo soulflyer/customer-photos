@@ -2,19 +2,20 @@
 # Called by applescript export-customer-pics.scpt
 
 PAGE=index.html
+DIVECENTRE="Diving_with_Rainbow_Divers_http://divevietnam.com"
 
 cd $1
 #echo $1
 FOLDERNAME=`basename $1`
 echo $FOLDERNAME
-
 shift
-if [ $_ ]
+if [ $1 ]
 then
-    echo "Second param is $1"
+    DIVECENTRE=$1
 else
-    echo "Didn't get 2nd param"
+    echo "Didn't get dive centre. Assuming Rainbow"
 fi
+echo "Dive centre is $DIVECENTRE"
 
 if [ -f photos.zip ]
 then
@@ -102,7 +103,7 @@ do
     URLMEDIUM="http://soulflyer.co.uk/divephotos/"$FOLDERNAME"/"$MEDIUMPATH$i
     LINKMEDIUM="<a class=\"medium\" href=./"$MEDIUMPATH$i"><img src=./"$THUMBPATH$i"></a>"
     LINKLARGE="<a class=\"large\" href=./"$LARGEPATH$i"><img src=./"$THUMBPATH$i"></a>"
-    FACEBOOKLINK="<input type="button" value='' class='fbinput' onclick=Javascript:postImage('"$URLMEDIUM"') />"
+    FACEBOOKLINK="<input type="button" value='' class='fbinput' onclick=Javascript:postImage('"$URLMEDIUM"','"$DIVECENTRE"') />"
     echo "     " $LINKMEDIUM >> $PAGE
     echo "     " $LINKLARGE >> $PAGE
     echo "     " $FACEBOOKLINK >> $PAGE
