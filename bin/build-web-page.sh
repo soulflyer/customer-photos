@@ -2,7 +2,7 @@
 # Called by applescript export-customer-pics.scpt
 
 PAGE=index.html
-DIVECENTRE="Diving_with_Rainbow_Divers_http://divevietnam.com"
+DIVECENTRE=358956457475087
 
 cd $1
 #echo $1
@@ -103,7 +103,7 @@ do
     URLMEDIUM="http://soulflyer.co.uk/divephotos/"$FOLDERNAME"/"$MEDIUMPATH$i
     LINKMEDIUM="<a class=\"medium\" href=./"$MEDIUMPATH$i"><img src=./"$THUMBPATH$i"></a>"
     LINKLARGE="<a class=\"large\" href=./"$LARGEPATH$i"><img src=./"$THUMBPATH$i"></a>"
-    FACEBOOKLINK="<input type="button" value='' class='fbinput' onclick=Javascript:postImage('"$URLMEDIUM"','"$DIVECENTRE"') />"
+    FACEBOOKLINK="<input type="button" value='' class='fbinput' onclick=Javascript:postImage('"$URLMEDIUM"','$DIVECENTRE') />"
     echo "     " $LINKMEDIUM >> $PAGE
     echo "     " $LINKLARGE >> $PAGE
     echo "     " $FACEBOOKLINK >> $PAGE
