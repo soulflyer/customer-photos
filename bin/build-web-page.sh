@@ -2,7 +2,8 @@
 # Called by applescript export-customer-pics.scpt
 
 PAGE=index.html
-DIVECENTRE=358956457475087
+#points to soulflyerphotos. Set it to divecentre fb page id with second param
+DIVECENTRE=320658371441269
 
 cd $1
 #echo $1
@@ -13,7 +14,7 @@ if [ $1 ]
 then
     DIVECENTRE=$1
 else
-    echo "Didn't get dive centre. Assuming Rainbow"
+    echo "Didn't get dive centre. Using Soulflyer-Photos instead"
 fi
 echo "Dive centre is $DIVECENTRE"
 
@@ -83,7 +84,7 @@ EOF
 THUMBPATH="thumbs/"
 MEDIUMPATH="medium/"
 LARGEPATH="large/"
-FULLSIZEPATH="fullsize/"
+# FULLSIZEPATH="fullsize/"
 
 for i in medium/*.gif
 do
