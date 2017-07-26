@@ -4,3 +4,4 @@ css/.sass-cache/*/*
 images/gallery-*
 pages/
 lib/
+.DS_Store
