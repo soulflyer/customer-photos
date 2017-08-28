@@ -1,6 +1,6 @@
 # Customer-Photos
 
-Scripts to export photos to soulflyer.com so customers can access them online. Mostly defunct since the demise of aperture (damn you apple) but make-gif is still useful.
+Scripts to export photos to soulflyer.com so customers can access them online. Mostly defunct since the demise of aperture (damn you apple) but make-gif is still useful. Now transfered to the publish repo.
 
 ## build-gallery-page.sh
 
