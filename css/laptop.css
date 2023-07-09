@@ -1,1 +1,52 @@
-/Users/iain/Code/soulflyer/css/laptop.css
+header {
+  background: none; }
+
+a.medium {
+  display: none; }
+
+nav ul li {
+  display: inline;
+  margin-right: 0%;
+  margin-left: 6%;
+  float: right; }
+
+body {
+  margin: 0px;
+  background: #292929; }
+
+nav {
+  background: none;
+  float: right;
+  margin-right: 3%;
+  width: 70%; }
+
+nav ul {
+  float: right;
+  width: 100%;
+  padding: 0px; }
+
+nav ul a {
+  text-decoration: none; }
+
+.content {
+  /* display: none; */ }
+
+nav ul a:visited, nav ul a:link, nav ul a:active {
+  color: #000000;
+  text-decoration: none; }
+
+header #logo {
+  background: url(../images/SoulflyerPhotos.png) no-repeat;
+  background-size: 100%;
+  width: 25%;
+  height: 300px;
+  float: left;
+  color: transparent;
+  margin-left: 2%;
+  margin-top: 1%; }
+
+#divephotos-section {
+  clear: right;
+  float: right; }
+
+/*# sourceMappingURL=laptop.css.map */

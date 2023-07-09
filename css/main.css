@@ -1,1 +1,43 @@
-/Users/iain/Code/soulflyer/css/main.css
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  background: #EBDA8C; }
+
+header {
+  background: #E3C13C; }
+  header #logo {
+    font-family: Papyrus, fantasy; }
+
+h1, h2, h3, h4, p {
+  font-family: Papyrus, fantasy; }
+
+nav li {
+  font-family: Papyrus, fantasy;
+  /* background: $pale-yellow; */ }
+
+nav {
+  background: #EBDA8C; }
+
+nav a {
+  text-decoration: none; }
+
+nav li a:visited, nav a:link, nav a:active {
+  color: #000000;
+  text-decoration: none; }
+
+nav li infobutton {
+  cursor: pointer; }
+
+a img {
+  outline: 4px solid black;
+  margin: 1%; }
+
+.content {
+  text-align: center;
+  margin-top: 2%;
+  clear: both; }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,1 +1,14 @@
-/Users/iain/Code/soulflyer/css/landscape.css
+.container {
+  background: url(../images/DIW_4224.jpg) no-repeat center center;
+  background-size: 96%;
+  height: 0px;
+  padding-bottom: 65%; }
+
+.content {
+  /* background: url(../images/DIW_4224.jpg) no-repeat center; */
+  /* background-size: 100%; */
+  /* height: 0px; */
+  /* padding-bottom: 66%; */
+  /* margin-top: 0px; */ }
+
+/*# sourceMappingURL=landscape.css.map */
